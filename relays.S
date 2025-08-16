@@ -1,3 +1,6 @@
+; relays.S para Arduino Uno (ATmega328P) // FUNCIONA CON EL 4 RELAY SHIELD ORIGINAL !!!
+
+
 .global main
 .section .text
 
