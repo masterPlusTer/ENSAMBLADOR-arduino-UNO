@@ -1,0 +1,38 @@
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o blink.elf blink.S
+avr-objcopy -O ihex blink.elf blink.hex
+avrdude -p atmega328p -c arduino -P /dev/ttyACM0 -b 115200 -U flash:w:blink.hex:i
+
+
+
+
+
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o music.elf music.S
+avr-objcopy -O ihex music.elf music.hex
+avrdude -p atmega328p -c arduino -P /dev/ttyACM0 -b 115200 -U flash:w:music.hex:i
+
+
+para nano 
+
+
+# 1. Compilar a .elf (asegúrate de estar en el directorio correcto)
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o blinkNANO.elf blinkNANO.S
+
+# 2. Convertir a .hex
+avr-objcopy -O ihex blinkNANO.elf blinkNANO.hex
+
+# 3. Cargar al Nano (con old bootloader)
+avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:blinkNANO.hex:i
+
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o blinkNANO.elf blinkNANO.S && \
+avr-objcopy -O ihex blinkNANO.elf blinkNANO.hex && \
+avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:blinkNANO.hex:i
+
+
+
+
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o snake_demo.elf snake_demo.S
+avr-objcopy -O ihex snake_demo.elf snake_demo.hex
+avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:snake_demo.hex:i
