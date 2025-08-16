@@ -1,8 +1,21 @@
 avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o blink.elf blink.S
-avr-objcopy -O ihex blink.elf blink.hex
+
 avrdude -p atmega328p -c arduino -P /dev/ttyACM0 -b 115200 -U flash:w:blink.hex:i
 
 
+/// para el del TSCIBUNY (el arduino del conejito)
+
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o blink.elf blink.S
+avr-objcopy -O ihex blink.elf blink.hex
+avrdude -p atmega328p -c arduino -P ch340 -b 115200 -U flash:w:blink.hex:i 
+
+
+
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o relays.elf relays.S
+avr-objcopy -O ihex relays.elf relays.hex
+avrdude -p atmega328p -c arduino -P ch340 -b 115200 -U flash:w:relays.hex:i 
 
 
 
@@ -12,7 +25,7 @@ avr-objcopy -O ihex music.elf music.hex
 avrdude -p atmega328p -c arduino -P /dev/ttyACM0 -b 115200 -U flash:w:music.hex:i
 
 
-para nano 
+//para nano 
 
 
 # 1. Compilar a .elf (asegúrate de estar en el directorio correcto)
@@ -36,3 +49,22 @@ avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:blinkNAN
 avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o snake_demo.elf snake_demo.S
 avr-objcopy -O ihex snake_demo.elf snake_demo.hex
 avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:snake_demo.hex:i
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o snake_demo.elf snake_demo.S
+avr-objcopy -O ihex snake_demo.elf snake_demo.hex
+avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:snake_demo.hex:i
+
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o test_buttons.elf test_buttons.S
+avr-objcopy -O ihex test_buttons.elf test_buttons.hex
+avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:test_buttons.hex:i
+
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o snake.elf snake.S
+avr-objcopy -O ihex snake.elf snake.hex
+avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:snake.hex:i
+
+
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o snake.elf snake.S
+avr-objcopy -O ihex snake.elf snake.hex
+avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:snake.hex:i
