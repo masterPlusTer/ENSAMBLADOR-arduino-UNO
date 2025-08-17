@@ -68,3 +68,9 @@ avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:snake.he
 avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -nostartfiles -o snake.elf snake.S
 avr-objcopy -O ihex snake.elf snake.hex
 avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 57600 -D -U flash:w:snake.hex:i
+
+
+
+
+/// sparkfun Red Board
+avrdude -p atmega328p -c arduino -P /dev/ttyUSB0 -b 115200 -U flash:w:blink.hex:i
